@@ -1,0 +1,92 @@
+{
+  "name": "linar-companion",
+  "displayName": "Linar Companion",
+  "description": "AI coding teacher in VS Code — powered by Groq",
+  "version": "0.1.0",
+  "publisher": "linar",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Education", "Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "linar.openPanel",
+        "title": "Linar: Open Panel"
+      },
+      {
+        "command": "linar.startLesson",
+        "title": "Linar: Start / Continue Lesson"
+      },
+      {
+        "command": "linar.setApiKey",
+        "title": "Linar: Set Groq API Key"
+      },
+      {
+        "command": "linar.reviewSavedFile",
+        "title": "Linar: Review Current Practice File"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "linar",
+          "title": "Linar",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "linar": [
+        {
+          "type": "webview",
+          "id": "linar.panel",
+          "name": "Linar"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Linar",
+      "properties": {
+        "linar.groq.model": {
+          "type": "string",
+          "default": "llama-3.3-70b-versatile",
+          "description": "Groq model id for chat completions"
+        },
+        "linar.groq.maxTokens": {
+          "type": "number",
+          "default": 2048,
+          "description": "Max completion tokens per Groq request"
+        },
+        "linar.groq.jsonMode": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use JSON response format instead of native tool calling (recommended for Groq/Llama)"
+        },
+        "linar.learningFolder": {
+          "type": "string",
+          "default": "learning",
+          "description": "Folder (under workspace) for practice files Linar creates"
+        },
+        "linar.autoReviewOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "When true, Groq reviews files under the learning folder on save"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "tsc -p ./ --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}
