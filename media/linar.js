@@ -44,7 +44,7 @@
     e.preventDefault();
     const text = chatInput.value.trim();
     if (!text) return;
-    addBubble(text, "linar");
+    addBubble(text, "user");
     chatInput.value = "";
     vscode.postMessage({ type: "chat", text });
   });

@@ -31,6 +31,8 @@ Optional: `linar.autoReviewOnSave` — auto-review files under `learning/` on sa
 
 - `learning/` — practice files created by the AI
 - `.linar/progress.md` — short notes the AI appends for continuity
+- [`docs/dinh-huong-project-hien-tai.md`](docs/dinh-huong-project-hien-tai.md) — định hướng sản phẩm từ tưởng tượng Linar cũ
+- [`docs/demo-kich-ban-thu.md`](docs/demo-kich-ban-thu.md) — kịch bản thử đẹp (tham chiếu QA, không nằm trong prompt)
 
 ## Requirements
 
